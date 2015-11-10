@@ -1,0 +1,55 @@
+<!-- to buy ticket for the lottery-->
+<!DOCTYPE html>
+<html>
+  <head>
+ <meta charset="UTF-8">
+ <script src="js/jquery-min.js"></script>
+ <link rel="stylesheet" type="text/css" href="style.css" />
+
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/jquery.cookie.js"></script>
+ 
+<script src="ticket.js"></script>
+  </head>
+
+  <body>
+
+   
+<div id="container">
+		<div id="mainpic">
+		
+		<div class="image_container">
+         <img src="images/bowling.jpg" width="900" height="400">
+        	<h1>NextCapital</h1>
+			<h2>Bowling Jackpot</h2>
+			<h5><a href="index.html">Logout</h5></br>
+            <h4><a href="leagues.html">Leagues</a></h4>
+		</div>	
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            		<li class="menuitem"><a href="#">Lotteries</a></li>
+                <li class="menuitem"><a href="lottery_league.html">Get lottery for league</a></li>
+               <li class="menuitem"><a href="buy_ticket.html">Buy tickets</a></li>               
+              <li class="menuitem"><a href="list_tickets.html">List tickets</a></li>
+			   <li class="menuitem"><a href="winning_ticket.html">Draw a ticket</a></li>
+                      <li class="menuitem"><a href="Record_result.html">Record Result</a></li>			   
+			   
+            </ul>
+        </div>
+        
+		<div id="content">
+       <h2>Enter bowler's ID to buy the ticket:</br>
+	    <form id="lname" name="lname">
+	   <input type="text" placeholder="Enter league id" name="leagueid" id="leagueid" /></br></br>
+        <input type="text" placeholder="Enter lottery id" name="lotteryid" id="lotteryid" /> </br></br>
+      <input type="text" placeholder="Enter the id" name="bowlerid" id="bowlerid" />
+      <input type="button" id="submit" value="submit" />
+    </form>
+	<div id="result"></div></br>
+  </div>
+ 
+	  
+  </body>
+</html>

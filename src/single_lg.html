@@ -1,0 +1,80 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+ <script src="js/jquery-min.js"></script>
+ <link rel="stylesheet" type="text/css" href="style.css" />
+
+   <script src="js/jquery.cookie.js"></script>
+ 
+  <script>
+  
+    $(document).ready(function(){
+	
+        $("#submit").click(function(){
+var legid=$('#leagueid').val();
+	//alert(legid);
+	
+
+		//alert(data);
+var res=$.cookie("encodedString");
+var x='http://bowling-api.nextcapital.com/api/leagues/';
+var y=legid;
+
+        $.ajax({
+            type: "GET",
+            url: x+y,
+            success: function(data){
+    var res1=JSON.stringify(data); 
+	document.getElementById("result").innerHTML=res1;
+            },
+			 error: function(e) {
+    console.log(e);
+  },
+            dataType: "json",
+			contentType:"application/json; charset=utf-8",
+			headers:{
+					"Authorization": "Basic "+res,
+					}
+        });
+    return false;
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container">
+		<div id="mainpic">
+		
+		<div class="image_container">
+         <img src="images/bowling.jpg" width="900" height="400">
+        	<h1>NextCapital</h1>
+			<h2>Bowling Jackpot</h2>
+							<h5><a href="index.html">Logout</h5>
+
+			<h4><a href="leagues.html">Leagues</a></h4>
+            
+		</div>	
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+               <li class="menuitem"><a href="lg.html">List all leagues</a></li>    
+              <li class="menuitem"><a href="single_lg.html">Get a league</a></li>
+              <li class="menuitem"><a href="single_bowler.html">Get a bowler</a></li> 
+             <li class="menuitem"><a href="all_bowlers.html">List all bowlers</a></li>
+			  <li class="menuitem"><a href="bowlLeague.html">Add bowler to league</a></li>
+		    	  <li class="menuitem"><a href="lotteries.html">Lotteries</a></li>	  
+            </ul>
+        </div>
+        
+		<div id="content">
+		<h3>Enter Legue Id</h3>
+ <form id="lname" name="lname">
+<input type="text" placeholder="Enter league id" name="leagueid" id="leagueid" />
+<input type="button" id="submit" value="submit" />
+</form>
+<div id="result"></div>
+</div>
+</body>
+ </html>

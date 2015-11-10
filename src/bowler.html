@@ -1,0 +1,62 @@
+<!--To create a bowler-->
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Bowling</title>
+<script src="js/jquery-min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+ <script src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="bowler.js"> </script> 
+<script type="text/javascript" src="login.js"> </script>   
+
+  </head>
+
+  <body>
+
+   
+<div id="container">
+		<div id="mainpic">
+		
+		<div class="image_container">
+         <img src="images/bowling.jpg" width="900" height="400">
+		 	<h4><a href="leagues.html">Leagues</a></h4>
+        	<h1>NextCapital</h1>
+			<h2>Bowling Jackpot</h2></br></br>
+       
+		</div>	
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	
+                <li class="menuitem"><a href="bowler.html">Create Bowler</a></li>
+               <li class="menuitem"><a href="lg.html">List all leagues</a></li>    
+              <li class="menuitem"><a href="single_lg.html">Get a league</a></li>
+              <li class="menuitem"><a href="single_bowler.html">Get a bowler</a></li> 
+             <li class="menuitem"><a href="all_bowlers.html">List all bowlers</a></li>
+			  <li class="menuitem"><a href="bowlLeague.html">Add bowler to league</a></li>
+			  
+			  			  
+            </ul>
+        </div>
+        
+		<div id="content">
+ <h1><u>Create a league</u></h1></br>
+    <h2>Enter the league name</h2>
+    <form id="bname" name="bname" method="POST" action="#">
+
+      <input type="text" placeholder="Enter the name" name="bowler" id="bowler" />
+      <input type="button" name="bowlerid" id="bowlerid" value="Submit"></br></br>
+	  	<h2>The result gives the Bowlerid:<h2>
+	<div id="result"></div></br>
+    </form>
+
+  </div>
+
+  </body>
+</html>

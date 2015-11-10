@@ -1,0 +1,79 @@
+<!-- To list all tickets-->
+<html>
+ <meta charset="UTF-8">
+ <script src="js/jquery-min.js"></script>
+ <link rel="stylesheet" type="text/css" href="style.css" />
+
+   <script src="js/jquery.cookie.js"></script>
+ 
+ 
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submit").click(function(){
+var legid=$('#leagueid').val();
+//	alert(legid);
+var lotid=$('#lotteryid').val();
+	//alert(legid);	
+
+var res=$.cookie("encodedString");
+
+
+        $.ajax({
+            type: "GET",
+            url: "http://bowling-api.nextcapital.com/api/leagues/"+legid+"/lotteries/"+lotid+"/tickets",
+            success:function(data){
+             var res1=JSON.stringify(data); 
+	document.getElementById("result").innerHTML=res1;
+            },
+			 error: function(e) {
+    console.log(e);
+  },
+			contentType: "application/json",
+			headers:{
+					"Authorization": "Basic "+res,
+					}
+        });
+    return false;
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container">
+		<div id="mainpic">
+		
+		<div class="image_container">
+         <img src="images/bowling.jpg" width="900" height="400">
+        	<h1>NextCapital</h1>
+			<h2>Bowling Jackpot</h2>
+			<h5><a href="index.html">Logout</h5>
+			<h4><a href="leagues.html">Leagues</a></h4>
+            
+		</div>	
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+              	<li class="menuitem"><a href="index.html">Home</a></li>
+                <li class="menuitem"><a href="lottery_league.html">Get lottery for league</a></li>
+               <li class="menuitem"><a href="buy_ticket.html">Buy tickets</a></li>               
+              <li class="menuitem"><a href="list_tickets.html">List tickets</a></li>
+			   <li class="menuitem"><a href="winning_ticket.html">Draw a ticket</a></li>
+                       <li class="menuitem"><a href="Record_result.html">Record Result</a></li>			   
+			   
+            </ul>
+        </div>
+        
+		<div id="content">
+		<h2>Enter League Id and lottery Id to get list of tickets:</br>
+ <input type="text" placeholder="Enter league id" name="leagueid" id="leagueid" /></br></br>
+<input type="text" placeholder="Enter lottery id" name="lotteryid" id="lotteryid" /></br></br> 
+		
+		
+<input type="button" id="submit" value="submit" /></br>
+List of Tickets:
+<div id="result"></div></br>
+</div>
+</body>
+ </html>

@@ -1,0 +1,78 @@
+<!-- To get the lottery id-->
+<html>
+ <meta charset="UTF-8">
+ <script src="js/jquery-min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submit1").click(function(){
+		//alert(data);
+		var legid=$('#leagueid').val();
+	//alert(legid);
+var res=$.cookie("encodedString");
+
+//alert(y);
+
+        $.ajax({
+            type: "GET",
+            url: "http://bowling-api.nextcapital.com/api/leagues/"+legid+"/lotteries",
+            success: function(data){
+var res1=JSON.stringify(data); 
+	document.getElementById("result").innerHTML=res1;
+	
+            },
+			 error: function(e) {
+			 console.log(e);
+  },
+			contentType: "application/json",
+			headers:{
+					"Authorization": "Basic "+res,
+					}
+        });
+    return false;
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="container">
+		<div id="mainpic">
+		
+		<div class="image_container">
+         <img src="images/bowling.jpg" width="900" height="400">
+	
+        	<h1>NextCapital</h1>
+			<h2>Bowling Jackpot</h2>
+			<h5><a href="index.html">Logout</h5></br>
+		<h4><a href="leagues.html">Leagues</a></h4>
+            
+		</div>	
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="#">Lotteries</a></li>
+                <li class="menuitem"><a href="lottery_league.html">Get lottery for league</a></li>
+               <li class="menuitem"><a href="buy_ticket.html">Buy tickets</a></li>               
+              <li class="menuitem"><a href="list_tickets.html">List tickets</a></li>
+			   <li class="menuitem"><a href="winning_ticket.html">Draw a ticket</a></li>
+               <li class="menuitem"><a href="Record_result.html">Record Result</a></li>			   
+			   
+			
+            </ul>
+        </div>
+        
+		<div id="content">
+<form>
+<h2>Get the lottery for the league<h2>
+League id:<input type="text" placeholder="Enter leagues id" name="leagueid" id="leagueid" />
+<input type="button" id="submit1" value="submit" />
+
+</form>
+<div id="result"></div></br>
+</div>
+</body>
+ </html>
